@@ -1,6 +1,6 @@
 :root {
-    --blue-500: #1e3a8a;
-    --blue-400: #3b82f6;
+    --blue-500: #3b82f6; /* Brighter blue for better contrast */
+    --blue-400: #60a5fa;
     --bg-dark: #05060f;
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
