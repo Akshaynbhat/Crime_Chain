@@ -16,8 +16,8 @@ async function initContract() {
     
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     signer = provider.getSigner();
-    // Use a placeholder address for now, or get it from env/user
-    const CONTRACT_ADDRESS = "0x0000000000000000000000000000000000000000"; 
+    // Use the contract address provided from Remix
+    const CONTRACT_ADDRESS = "0xd9145CCE52D386f254917e481eB44e9943F39138"; 
     contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
 }
 
