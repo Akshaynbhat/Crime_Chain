@@ -38,12 +38,12 @@
 
     <!-- LANDING VIEW -->
     <section id="view-landing" class="view-section active relative z-10 flex flex-col">
-        <nav class="h-16 px-8 flex items-center justify-between border-b border-white/5 bg-black/50 backdrop-blur-xl shrink-0">
+        <nav class="h-16 px-4 md:px-8 flex items-center justify-between border-b border-white/5 bg-black/50 backdrop-blur-xl shrink-0">
             <div class="flex items-center gap-3">
                 <i data-lucide="shield" class="w-8 h-8 text-blue-500"></i>
                 <span class="text-xl font-bold uppercase tracking-tighter">CrimeChain PRO</span>
             </div>
-            <button onclick="showView('selection')" class="px-6 py-2 bg-transparent text-black text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-slate-200 transition-colors flex items-center gap-2">
+            <button onclick="showView('selection')" class="px-6 py-2 bg-white text-black text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-slate-200 transition-colors flex items-center gap-2">
                 Enter Registry <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
         </nav>
@@ -75,8 +75,8 @@
     </section>
 
     <!-- ROLE SELECTION VIEW -->
-    <section id="view-selection" class="view-section relative z-10 bg-[#05060f] items-center justify-center p-6">
-        <div class="mb-16 text-center">
+    <section id="view-selection" class="view-section relative z-10 bg-[#05060f] flex-col items-center justify-center p-6">
+        <div class="mb-12 text-center">
             <h2 class="text-5xl font-bold tracking-tight mb-4 text-white">Select your role</h2>
             <p class="text-[#a0a0a0] font-medium text-lg">Please choose your department to proceed to authentication.</p>
         </div>
@@ -107,14 +107,14 @@
             </button>
         </div>
 
-        <button onclick="showView('landing')" class="mt-16 text-sm font-medium text-[#808080] hover:text-white transition-colors underline underline-offset-8 decoration-[#303030]">
+        <button onclick="showView('landing')" class="mt-12 text-sm font-medium text-[#808080] hover:text-white transition-colors underline underline-offset-8 decoration-[#303030]">
             Back to Home
         </button>
     </section>
 
     <!-- LOGIN VIEW -->
-    <section id="view-login" class="view-section relative z-10 items-center justify-center p-6">
-        <div class="w-full max-w-md p-12 glass-card">
+    <section id="view-login" class="view-section relative z-10 flex-col items-center justify-center p-6">
+        <div class="w-full max-w-md p-8 md:p-12 glass-card">
             <div class="flex flex-col items-center text-center mb-12">
                 <div id="login-icon-box" class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20">
                     <i id="login-icon" data-lucide="shield" class="w-8 h-8 text-blue-500"></i>
@@ -153,22 +153,22 @@
 
     <!-- DASHBOARD VIEW -->
     <section id="view-dashboard" class="view-section relative z-10 flex-col">
-        <header class="sticky top-0 z-50 h-16 px-8 flex items-center justify-between border-b border-[#262626] bg-black/80 backdrop-blur-xl">
+        <header class="sticky top-0 z-50 h-16 px-4 md:px-8 gap-4 flex items-center justify-between border-b border-[#262626] bg-black/80 backdrop-blur-xl">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center">
                     <i data-lucide="shield" class="w-5 h-5 text-white"></i>
                 </div>
-                <span class="text-xl font-bold tracking-tighter uppercase">CrimeChain Pro</span>
-                <div id="role-badge" class="ml-4 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] font-bold uppercase tracking-widest text-blue-500">
+                <span class="text-base md:text-xl font-bold tracking-tighter uppercase whitespace-nowrap">CrimeChain Pro</span>
+                <div id="role-badge" class="hidden sm:block ml-4 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] font-bold uppercase tracking-widest text-blue-500">
                     SESSION
                 </div>
             </div>
             
-            <div class="flex items-center gap-6">
-                <div id="wallet" class="text-[10px] font-bold mono text-emerald-500 bg-emerald-500/100/10 px-3 py-1.5 rounded border border-emerald-500/20 uppercase tracking-widest">
+            <div class="flex items-center gap-3 md:gap-6 shrink-0">
+                <div id="wallet" class="hidden sm:block whitespace-nowrap text-[10px] font-bold mono text-emerald-500 bg-emerald-500/10 px-3 py-1.5 rounded border border-emerald-500/20 uppercase tracking-widest">
                     Not connected
                 </div>
-                <button onclick="connectWallet()" class="px-4 py-2 bg-[#171717] border border-[#262626] hover:bg-transparent/5 text-white rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all">
+                <button onclick="connectWallet()" class="px-4 py-2 bg-[#171717] border border-[#262626] hover:bg-white/5 text-white rounded-lg text-[10px] font-bold uppercase tracking-widest whitespace-nowrap transition-all">
                     Sync Wallet
                 </button>
                 <div class="h-6 w-[1px] bg-[#262626]"></div>
@@ -178,9 +178,9 @@
             </div>
         </header>
 
-        <main class="flex-1 p-8 space-y-8 max-w-[1440px] mx-auto w-full">
+        <main class="flex-1 p-6 md:p-8 space-y-8 max-w-[1440px] mx-auto w-full">
             <!-- Stat Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 <div class="p-6 glass-card flex flex-col gap-2">
                     <div class="flex items-center justify-between">
                         <span class="text-[10px] text-neutral-400 uppercase tracking-[0.2em] font-bold">Active Cases</span>
@@ -214,7 +214,7 @@
             <!-- DASHBOARD CONTENT: INVESTIGATOR -->
             <div id="dash-investigator" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8">
                 <div class="lg:col-span-8 flex flex-col gap-8">
-                    <section class="glass-card p-10 space-y-10">
+                    <section class="glass-card p-6 md:p-10 space-y-8 md:space-y-10">
                         <div class="flex items-center gap-4">
                             <i data-lucide="upload" class="w-7 h-7 text-blue-500"></i>
                             <h3 class="text-2xl font-bold tracking-tight">Police Evidence Intake</h3>
@@ -234,7 +234,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button onclick="uploadFile()" class="w-full py-5 bg-transparent text-black font-bold uppercase tracking-widest rounded-2xl hover:bg-slate-200 transition-all shadow-2xl active:scale-[0.98]">Seal on Distributed Ledger</button>
+                        <button onclick="uploadFile()" class="w-full py-5 bg-white text-black font-bold uppercase tracking-widest rounded-2xl hover:bg-slate-200 transition-all shadow-2xl active:scale-[0.98]">Seal on Distributed Ledger</button>
                         <div id="txStatus" class="text-center text-[10px] font-bold mono text-emerald-500 uppercase tracking-[0.3em]">Protocol Idle</div>
                     </section>
                 </div>
@@ -259,17 +259,17 @@
             <!-- DASHBOARD CONTENT: LEGAL -->
             <div id="dash-legal" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8">
                 <div class="lg:col-span-8 flex flex-col gap-8">
-                    <section class="glass-card p-10">
+                    <section class="glass-card p-6 md:p-10">
                         <div class="flex items-center gap-4 mb-8">
                             <i data-lucide="check-circle" class="w-7 h-7 text-emerald-500"></i>
                             <h3 class="text-2xl font-bold tracking-tight">Judicial Evidence Verification</h3>
                         </div>
                         <div class="flex flex-col gap-4">
-                            <div class="flex gap-4">
-                                <input id="verifyCaseId" type="text" placeholder="Access Audit ID (Case CID)" class="flex-1 bg-black/40 border border-[#262626] rounded-xl p-5 outline-none focus:border-emerald-500 transition-all font-medium">
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <input id="verifyCaseId" type="text" placeholder="Access Audit ID (Case CID)" class="flex-1 min-w-0 bg-black/40 border border-[#262626] rounded-xl p-5 outline-none focus:border-emerald-500 transition-all font-medium">
                                 <input type="file" id="verifyFile" class="hidden" onchange="document.getElementById('verifyFileName').innerText = this.files[0] ? 'Selected: ' + this.files[0].name : ''">
-                                <button onclick="document.getElementById('verifyFile').click()" class="px-8 py-5 glass-card border border-[#262626] rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-transparent/5">Select File</button>
-                                <button onclick="verifyFile()" class="px-12 py-5 glass-card border border-emerald-500/50 rounded-xl text-xs font-bold uppercase tracking-widest bg-emerald-500/100/10 hover:bg-emerald-500/100/20 text-emerald-500 transition-all">Verify Authenticity</button>
+                                <button onclick="document.getElementById('verifyFile').click()" class="px-8 py-5 glass-card border border-[#262626] rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-white/5">Select File</button>
+                                <button onclick="verifyFile()" class="px-12 py-5 glass-card border border-emerald-500/50 rounded-xl text-xs font-bold uppercase tracking-widest bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-500 transition-all">Verify Authenticity</button>
                             </div>
                             <div id="verifyFileName" class="text-xs text-neutral-400 font-mono pl-1"></div>
                         </div>
@@ -282,15 +282,15 @@
                 <div class="lg:col-span-4 space-y-8">
                     <section class="bg-black border border-[#262626] rounded-3xl p-8 flex flex-col h-full shadow-inner">
                         <h3 class="text-[10px] font-bold uppercase tracking-[0.5em] text-neutral-400 mb-8">Audit Output Terminal</h3>
-                        <textarea id="output" readonly class="flex-1 bg-transparent border-none outline-none resize-none italic text-neutral-400 leading-[1.8] text-lg font-medium" placeholder="Judicial results will appear here..."></textarea>
+                        <textarea id="output" readonly class="flex-1 min-h-[160px] bg-transparent border-none outline-none resize-none italic text-neutral-400 leading-[1.8] text-lg font-medium" placeholder="Judicial results will appear here..."></textarea>
                         <div id="txStatusLegal" class="mt-8 text-[11px] font-bold mono text-emerald-500 tracking-[0.3em] uppercase">Status: Awaiting Legal Sync</div>
                     </section>
                 </div>
             </div>
         
             <!-- DASHBOARD CONTENT: PUBLIC -->
-            <div id="dash-public" class="hidden flex-col gap-4 glass-card p-0 rounded-2xl overflow-hidden" style="min-height: 80vh;">
-                <header class="h-16 border-b border-[#262626] flex items-center justify-between px-4 md:px-8 bg-black/50 backdrop-blur-xl z-50 sticky top-0 flex-shrink-0 border-b border-[#262626]">
+            <div id="dash-public" class="hidden flex-col glass-card p-0 rounded-2xl overflow-hidden">
+                <header class="h-16 border-b border-[#262626] flex items-center justify-between gap-2 px-4 md:px-8 bg-black/50 backdrop-blur-xl flex-shrink-0">
         <div class="flex items-center gap-4 md:gap-6">
             <h1 class="font-bold text-white hidden sm:block" data-i18n="navTitle">Smart Legal Search</h1>
             <h1 class="font-bold text-white sm:hidden">CrimeChain</h1>
@@ -320,9 +320,10 @@
             </button>
         </div>
     </header>
-                <div class="flex flex-1 overflow-hidden">
+                <div class="flex flex-1 min-h-0">
         <!-- Sidebar -->
-        <aside class="w-64 border-r border-[#262626] h-full hidden lg:flex flex-col bg-transparent overflow-y-auto">
+        <aside class="w-64 shrink-0 border-r border-[#262626] hidden lg:block bg-transparent">
+            <div class="sticky top-16 flex flex-col">
             <nav class="flex-1 py-6 space-y-1 px-4">
                 <p class="text-[10px] font-bold text-neutral-500 px-4 mb-2 uppercase tracking-widest" data-i18n="menuLabel">Main Menu</p>
                 <div class="flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition-colors text-[#808080] hover:bg-[#1c1d29] hover:text-white group">
@@ -363,14 +364,15 @@
                     </button>
                 </div>
             </div>
+        </div>
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 flex flex-col overflow-hidden bg-transparent">
-            <div class="flex-1 overflow-y-auto px-6 py-10 md:px-12 max-w-7xl mx-auto w-full relative" id="content-area">
+        <main class="flex-1 min-w-0 flex flex-col bg-transparent">
+            <div class="px-6 pt-10 pb-10 md:px-12 max-w-6xl mx-auto w-full relative scroll-mt-20" id="content-area">
                 
                 <!-- Hero Section -->
-                <section id="hero-view" class="flex flex-col items-center text-center gap-12 mt-12 mb-20 relative">
+                <section id="hero-view" class="flex flex-col items-center text-center gap-10 mt-4 mb-16 relative">
                     <div class="space-y-4 max-w-2xl mx-auto">
                         <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight text-white" data-i18n="heroTitle">
                             Find Laws & Legal Rights <br />
@@ -425,7 +427,7 @@
                 </section>
 
                 <!-- Results View (Hidden by default) -->
-                <section id="results-view" class="space-y-8 pb-20 hidden">
+                <section id="results-view" class="space-y-8 pb-12 hidden">
                     <!-- Search Header -->
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#262626]">
                         <div class="flex items-center gap-4">
@@ -470,9 +472,9 @@
                 </section>
             </div>
 
-            <section id="simplifier-view" class="flex flex-col items-center gap-8 mt-12 mb-20 relative w-full">
-                <div class="h-px bg-[#262626] w-full max-w-4xl mx-auto mb-4"></div>
-                <div class="space-y-2 text-center max-w-2xl mx-auto mb-4">
+            <section id="simplifier-view" class="flex flex-col items-center gap-6 mb-16 px-6 md:px-12 relative w-full">
+                <div class="h-px bg-[#262626] w-full max-w-4xl mx-auto"></div>
+                <div class="space-y-2 text-center max-w-2xl mx-auto">
                     <h2 class="text-2xl font-bold tracking-tight text-white">Document Simplifier</h2>
                     <p class="text-[#808080] text-sm">Paste complex legal text below to get a simplified AI breakdown of the risks, actions, and terms.</p>
                 </div>
@@ -600,14 +602,11 @@
             </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
     </section>
 
     <!-- Guided e-FIR System Section -->
-    <section class="max-w-5xl mx-auto px-8 mb-20 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-        <div class="glass-card rounded-[2rem] border border-[#262626] overflow-hidden bg-black/40 shadow-2xl">
+    <section class="w-full px-6 md:px-12 mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+        <div class="max-w-4xl mx-auto glass-card rounded-2xl border border-[#262626] overflow-hidden bg-black/40 shadow-2xl">
             <!-- Header -->
             <div class="px-6 py-5 border-b border-[#262626] flex items-center justify-between bg-black/20">
                 <div class="flex items-center gap-3">
@@ -622,13 +621,13 @@
             </div>
             
             <!-- App Container where eFIR app.js mounts -->
-            <div id="app-container" class="relative min-h-[500px]"></div>
+            <div id="app-container" class="relative"></div>
         </div>
     </section>
     
     
             <!-- Footer -->
-            <footer class="h-10 border-t border-[#262626] px-8 flex items-center justify-between bg-transparent text-[10px] font-bold text-neutral-500 flex-shrink-0">
+            <footer class="h-10 border-t border-[#262626] px-8 flex items-center justify-between bg-transparent text-[10px] font-bold text-neutral-500 flex-shrink-0 mt-auto">
                 <div class="flex items-center gap-4">
                     <span class="flex items-center gap-2 uppercase tracking-widest">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/100"></span>
@@ -642,9 +641,17 @@
         </main>
     </div>
 
-    
-            
                 </div>
+
+    
+</main>
+
+        <footer class="py-8 px-8 border-t border-[#262626] mt-auto flex flex-col items-center gap-4 opacity-20">
+            <i data-lucide="shield" class="w-8 h-8"></i>
+            <p class="text-[11px] font-bold tracking-[0.6em] uppercase text-neutral-400">CrimeChain Pro &bull; Distributed Security Protocol &bull; 2.4.1</p>
+        </footer>
+    </section>
+
             <!-- Modals -->
     <!-- Law Detail Modal -->
     <div id="law-detail-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#05060f]/40 backdrop-blur-sm hidden">
@@ -790,15 +797,6 @@
             </div>
         </div>
     </div>
-
-    
-</main>
-
-        <footer class="p-16 border-t border-[#262626] mt-auto flex flex-col items-center gap-8 opacity-20">
-            <i data-lucide="shield" class="w-10 h-10"></i>
-            <p class="text-[11px] font-bold tracking-[0.6em] uppercase text-neutral-400">CrimeChain Pro &bull; Distributed Security Protocol &bull; 2.4.1</p>
-        </footer>
-    </section>
 
     <!-- jsPDF and AutoTable for eFIR -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

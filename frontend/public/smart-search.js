@@ -27,7 +27,54 @@ document.addEventListener('DOMContentLoaded', () => {
             displayResults(matches, query);
         });
     }
+
+    renderCategories();
+
+    const clearBtn = document.getElementById('clear-search-btn');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            resultsView.classList.add('hidden');
+            heroView.classList.remove('hidden');
+            const categoriesView = document.getElementById('categories-view');
+            if (categoriesView) categoriesView.classList.remove('hidden');
+        });
+    }
 });
+
+// Category cards for the "Browse Categories" grid (built from MOCK_LAWS groups)
+function renderCategories() {
+    const grid = document.getElementById('categories-grid');
+    const count = document.getElementById('module-count');
+    if (!grid) return;
+
+    const groups = [...new Set(MOCK_LAWS.map(law => law.group))];
+    grid.innerHTML = '';
+    groups.forEach(group => {
+        const total = MOCK_LAWS.filter(law => law.group === group).length;
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'p-5 glass-card text-left flex flex-col gap-2 hover:-translate-y-1';
+        card.innerHTML = `
+            <span class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">${total} Section${total === 1 ? '' : 's'}</span>
+            <span class="text-base font-bold text-white">${group}</span>
+        `;
+        card.addEventListener('click', () => displayResults(MOCK_LAWS.filter(law => law.group === group), group.toLowerCase()));
+        grid.appendChild(card);
+    });
+    if (count) count.textContent = `${groups.length} MODULES`;
+}
+
+// Sidebar category links (onclick="handleCategoryClick(...)")
+const CATEGORY_QUERIES = { 'cat-cyber': 'cyber', 'cat-women': 'women' };
+window.handleCategoryClick = function (categoryId) {
+    const query = CATEGORY_QUERIES[categoryId] || categoryId;
+    const matches = MOCK_LAWS.filter(law =>
+        law.title.toLowerCase().includes(query) ||
+        law.group.toLowerCase().includes(query)
+    );
+    displayResults(matches, query);
+};
 
 function displayResults(matches, query) {
     const resultsGrid = document.getElementById('results-grid');
@@ -52,6 +99,13 @@ function displayResults(matches, query) {
         resultsGrid.appendChild(card);
     });
 
+    if (matches.length === 0) {
+        resultsGrid.innerHTML = '<div class="md:col-span-2 p-6 glass-card text-sm text-neutral-400">No matching sections found. Try different keywords.</div>';
+    }
+
     heroView.classList.add('hidden');
+    const categoriesView = document.getElementById('categories-view');
+    if (categoriesView) categoriesView.classList.add('hidden');
     resultsView.classList.remove('hidden');
+    document.getElementById('content-area')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
