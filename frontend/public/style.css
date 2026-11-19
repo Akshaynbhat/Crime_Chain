@@ -87,6 +87,13 @@ body {
     opacity: 0;
 }
 
+/* !important: Tailwind's CDN injects its utilities after this file, so classes like
+   `flex` on a section would otherwise override display:none and leave inactive views
+   taking up invisible space above the active one. */
+.view-section:not(.active) {
+    display: none !important;
+}
+
 .view-section.active {
     display: flex;
     opacity: 1;
